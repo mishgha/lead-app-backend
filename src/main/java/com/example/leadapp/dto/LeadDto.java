@@ -29,7 +29,7 @@ public class LeadDto {
     String email;
 
     @Pattern(regexp = "^[0-9]*$", message = "Phone must contain numbers only")
-    String phone;
+    String phoneNumber;
 
     String companyName;
 

@@ -3,6 +3,7 @@ package com.example.leadapp.mapper;
 import com.example.leadapp.dto.LeadDto;
 import com.example.leadapp.entity.Lead;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.NullValueMappingStrategy;
 import org.mapstruct.factory.Mappers;
 
@@ -32,6 +33,7 @@ public interface LeadMapper {
      * @param leadDto the DTO containing lead data.
      * @return the mapped {@link Lead} entity.
      */
+    @Mapping(target = "phone", expression = "java(leadDto.getPhoneNumber())")
     Lead mapLeadDtoToLead(LeadDto leadDto);
 
     /**
@@ -40,6 +42,7 @@ public interface LeadMapper {
      * @param lead the entity containing lead data.
      * @return the mapped {@link LeadDto}.
      */
+    @Mapping(target = "phoneNumber", expression = "java(lead.getPhone())")
     LeadDto mapLeadToLeadDto(Lead lead);
 
 }
